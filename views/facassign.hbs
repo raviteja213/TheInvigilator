@@ -1,0 +1,188 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+      <style>
+      *{
+  margin:0;
+  padding:0;
+  font-family:  sans-serif;
+  
+}
+html,body{
+    width: 100%;
+    height: 100%;
+}
+body {
+    margin: 0;
+    background-color: #eeeeee;
+}
+a{
+    text-decoration:none;
+}
+
+
+nav{
+   background: rgb(159, 109, 224);
+   display: flex;
+   justify-content: space-between;
+   box-shadow:0 8px 16px rgb(95, 95, 95);
+   padding: 30px 60px;
+}
+nav h1{
+  border-bottom:4px solid  white;
+  color: white;
+}
+nav ul{
+  justify-content: space-around;
+  display: flex;
+  align-items: center;
+  
+}
+nav li{
+ color: white;
+  list-style: none;
+  padding-right: 30px;
+}
+
+nav a{
+  color:white;``
+  text-decoration: none;
+  font-weight: bold;
+  padding: 5px 8px;
+}
+
+nav a:hover{
+  color: white;
+  border-bottom:4px solid  white;
+}
+
+
+.fac{
+  height: 80px;
+  width:800px;
+  background-color: white;
+  box-shadow:0 8px 16px rgb(95, 95, 95);
+  border-radius: 300px;
+  position: absolute;
+  top:50%;
+  left:50%;
+  transform: translate(-50%,-50%);
+  margin-top: 20px;
+}
+.fa{
+  position: fixed;
+  top:50%;
+  left:50%;
+  transform: translate(-50%,-50%);
+  justify-content: space-between;
+  height: 500pxS;
+}
+select{
+  padding: 8px 12px;
+  border-radius: 5px;
+}
+select option{
+  background-color:rgb(159, 109, 224) ;
+  color: white;
+  margin: 10px;
+}
+label{
+  padding: 12px 16px;
+
+}
+form{
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+form input[type="submit"]{
+  border-radius: 15px;
+  margin-left: 20px;
+  width: 100px;
+  height: 30px;
+  background-color: rgb(159, 109, 224);
+  color: white;
+  outline: none;
+  border: none;
+}
+
+
+  </style>
+    <script>
+        var user=[
+        {{#each facname}}
+            {
+                name:'{{name}}',
+
+            }
+        {{/each}}
+        ];
+        var user1=[
+        {{#each user}}
+            {
+                room:'{{room}}',
+
+            }
+        {{/each}}
+        ];
+    </script>
+    
+</head>
+
+<body>
+     <nav>
+      <h1>The University</h1>
+        <ul>
+          <li><a href="admin.hbs"> <b>Home</b></a></li>
+          <li><a href="adminfac.hbs"><b>Faculty</b></a></li>
+          <li><a href=""><b>Aboutus</b></a></li>
+        </ul>
+        
+    </nav>
+    <div>
+        <form action="/auth/facassign" method="POST">
+        <label for="name">FACULTY:</label>
+        <select name="name" id="name">
+            <option value="none">-none-</option>
+           
+            {{#each facname}}
+             <option value="{{this.name}}">{{this.name}}</option>
+                
+            {{/each}}
+        </select>
+        <label for="role">ROLE:</label>
+        <select name="role" id="role">
+            <option value="none">-none-</option>
+            <option value="CI">CI</option>
+            <option value="AF">AF</option>
+        </select>
+        <label for="room">ROOM:</label>
+        <select name="room" id="room">
+            <option value="none">-none-</option>
+           
+            {{#each user}}
+             <option value="{{this.room}}">{{this.room}}</option>
+                
+            {{/each}}
+        </select>
+
+        <input type="submit">
+
+        </form>
+        {{#if suc}}
+        <h2>{{suc}}</h2>
+        <form action="/adminca.hbs">
+        <input type="submit" value="faculty role">
+        </form>
+        {{/if}}
+        
+       
+
+        
+    </div>
+
+</body>
+</html>

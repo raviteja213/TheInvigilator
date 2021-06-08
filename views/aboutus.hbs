@@ -1,0 +1,256 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/fontawesome.min.css" integrity="sha384-wESLQ85D6gbsF459vf1CiZ2+rr+CsxRY0RpiF1tLlQpDnAgg6rwdsUF1+Ics2bni" crossorigin="anonymous">
+<style>
+    *{
+        margin: 0px;
+        padding:0px;
+        box-sizing: border-box;
+        font-family: sans-serif;
+    }
+    .form{
+        position:relative;
+        min-height: 100vh;
+        padding:10px 50px;
+        display: flex;
+        justify-content:center;
+        align-items: center;
+        flex-direction:column;
+        background-image: url(https://itelinfo.com/wp-content/uploads/2018/06/aboutus-background-img1.jpg);
+        background-size:cover;
+    }
+    .container{
+        max-width: 800px;
+        text-align:center;
+        }
+    .container h1{
+        font-size: 36px;
+        font-weight:500;
+    }
+    .container p{
+
+        font-weight:300;
+    }
+    .bigbox{
+        display:flex;
+        width:100%;
+        justify-content: center;
+        align-items: center;
+        margin-top: 50px;
+    }
+
+    .info{
+        width:50%;
+        display: flex;
+        flex-direction:column;
+    }
+    .box{
+        position:relative;
+        padding: 20px 0;
+        display:flex;
+    }
+    .icon{
+        min-width:60px;
+        height:60px;
+        background: white;
+        display:flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50%;
+    }
+    .box .sm{
+        display:flex;
+        flex-direction:column;
+        margin-left: 20px;
+        padding-top: 9px;
+    }
+    .box .sm h3{
+        color: #00bcd4;
+        font-weight:500;
+    }
+    .messagebox{
+        width:40%;
+        padding: 40px;
+        background: white;
+    }
+    .messagebox h2{
+        font-size: 30px;
+        color:#333;
+        font-weight:500;
+    }
+    .messagebox .inputbox{
+        position:relative;
+        width:100%;
+        margin-top: 10px;
+    }
+    .messagebox .inputbox input,.messagebox .inputbox textarea {
+        width:100%;
+        padding: 5px 0;
+        font-size:16px;
+        margin: 10px 0;
+        border: none;
+        border-bottom: 2px solid #333;
+        outline: none;
+        resize:none;
+    }
+    .messagebox .inputbox span{
+        position:absolute;
+        left:0;
+        padding: 5px 0;
+        font-size:16px;
+        margin: 10px 0;
+        pointer-events: none;
+        transition:0.5s;
+        color:#666;
+    }
+    .messagebox .inputbox input:focus ~span,
+    .messagebox .inputbox input:valid ~span,
+    .messagebox .inputbox textarea:focus ~span,
+    .messagebox .inputbox textarea:valid ~span{
+        color:#e91e63;
+        font-size:15px;
+        transform:translateY(-20px);
+        
+    }
+    .messagebox .inputbox input[type="submit"]{
+        width:100px;
+        background:#00bcd4;
+        color:#fff;
+        border: none;
+        cursor: pointer;
+        padding:10px;
+        font-size:18px;
+    }
+    @media(max-width:991px)
+    {
+        .container{
+            padding:50px;
+        }
+        .bigbox{
+            flex-direction: column;
+        }
+        .bigbox .info ,.bigbox .messagebox{
+            margin-bottom:40px;
+            width:100%;
+        }
+
+    }
+    a{
+    text-decoration:none;
+}
+
+
+nav{
+   background: white;
+   display: flex;
+   justify-content: space-between;
+   box-shadow:0 8px 16px rgb(95, 95, 95);
+   padding: 30px 60px;
+}
+nav h1{
+  border-bottom:4px solid green;
+}
+nav ul{
+  justify-content: space-around;
+  display: flex;
+  align-items: center;
+  
+}
+nav li{
+ 
+  list-style: none;
+  padding-right: 30px;
+}
+
+nav a{
+  color:green;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 5px 8px;
+}
+
+nav a:hover{
+  color: rgb(0, 0, 0);
+  border-bottom:4px solid green;
+}
+
+   
+
+
+</style>
+</head>
+<body>
+    <nav>
+        <h1>Amrita University</h1>
+    
+            <ul>
+              <li><a href="home.hbs"> <b>Home</b></a></li>
+              <li><a href="index.hbs"><b>Faculty</b></a></li>
+              <li><a href="adminlogin.hbs"><b>Admin</b></a></li>
+              <li><a href=""><b>Aboutus</b></a></li>
+            </ul>
+            
+        </nav>
+    <section class="form">
+            <div class="container">
+            <h1>About-us</h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto magnam voluptatibus vitae blanditiis voluptas quaerat molestias, esse eligendi porro obcaecati earum fugiat quibusdam. Nesciunt debitis eius quia sed, aut eligendi!</p>
+            </div>
+            <div class="bigbox">
+            <div class="info">
+                <div class="box">
+                    <div class="icon">
+                        <img src="https://www.flaticon.com/svg/vstatic/svg/733/733614.svg?token=exp=1618804074~hmac=8929430c77590c2f032b0f5735f92ff3" height="15px" width="15px" alt="">
+                    </div>
+                    <div class="sm">
+                        <h3>Social media</h3>
+                        <p>prateek</p>
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="icon">
+                       <img src="https://www.flaticon.com/svg/vstatic/svg/597/597177.svg?token=exp=1618803700~hmac=fc3a08a6a59f297126d3414cd2ac2836" height="15px" width="15px" alt="">
+                    </div>
+                    <div class="sm">
+                        <h3>PHno</h3>
+                        <p>+91 9574327575</p>
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="icon">
+                        <img src="https://www.flaticon.com/svg/vstatic/svg/561/561127.svg?token=exp=1618804167~hmac=31eb0249fb197a4d72de215d287c2029" height="15px" width="15px" alt="">
+                    </div>
+                    <div class="sm">
+                        <h3>Gmail</h3>
+                        <p>prateek.12@gmail.com</p>
+                    </div>
+                </div>
+            </div>
+            <div class="messagebox">
+                <form action="">
+                    <h2>Send message</h2>
+                <div class="inputbox">
+                    <input type="text" required="required" >
+                    <span>Full name</span>
+                </div>
+                <div class="inputbox">
+                    <input type="mail" required="required" >
+                    <span>Gmail</span>
+                </div>
+                <div class="inputbox">
+                    <textarea required="required"></textarea>
+                    <span>type your message</span>
+                </div>
+                <div class="inputbox">
+                    <input type="submit" value="send">
+                </div>
+                </form>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

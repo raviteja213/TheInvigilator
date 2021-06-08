@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>JS Bin</title>
+  <style>
+      *{
+  margin:0;
+  padding:0;
+  font-family:  sans-serif;
+  
+}
+html,body{
+    width: 100%;
+    height: 100%;
+}
+body {
+    margin: 0;
+    background-color: #eeeeee;
+}
+a{
+    text-decoration:none;
+}
+
+
+    nav{
+   background: rgb(255, 146, 3);
+   display: flex;
+   justify-content: space-between;
+   box-shadow:0 8px 16px rgb(95, 95, 95);
+   padding: 30px 60px;
+}
+nav h1{
+  border-bottom:4px solid  white;
+  color: white;
+}
+nav ul{
+  justify-content: space-around;
+  display: flex;
+  align-items: center;
+  
+}
+nav li{
+ color: white;
+  list-style: none;
+  padding-right: 30px;
+}
+
+nav a{
+  color:white;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 5px 8px;
+}
+
+nav a:hover{
+  color: white;
+  border-bottom:4px solid  white;
+}
+.content{
+  display: flex;
+  flex-direction: column;
+  
+  align-items: center;
+}
+.userinfo{
+  background-color: #a59898cc;
+  width: 700px;
+  height: 400px;
+  margin-top: 5%;
+  border-radius: 10px;
+  display: flex;
+  
+  justify-content: space-between;
+  align-items: center;
+  border:5px solid rgb(255, 146, 3);
+}
+.userinfo .userlogo{
+  margin-left:30px;
+  background-color: #eeeeee;
+  border-radius: 100px;
+  padding: 20px;
+
+}
+.userinfo .userdetails{
+  margin-right: 15px;
+}
+.userinfo .userdetails h3{
+  background-color: #eeeeee;
+  border-radius: 10px;
+  width:300px;
+  margin-bottom: 20px;
+  padding: 10px;
+
+}
+.query{
+  margin-top: 40px;
+
+}
+
+.query .head{
+  padding: 10px;
+}
+.query form{
+  margin-left: 20px;
+}
+.query text{
+  padding: 20px;
+}
+
+
+  </style>
+  <script>
+    var user=[
+        {{#each notific}}
+            {
+                notification:'{{notification}}',
+
+            }
+        {{/each}}
+        ];
+  </script>
+</head>
+<body>
+    <nav>
+      <h1>The University</h1>
+        <ul>
+          <li><a href="/facultyhome.hbs"><b>Home</b> </a></li>
+          <li><a href="/facedit.hbs"> <b>edit details</b></a></li>
+          <li><a href="/showsh.hbs"><b>Schedule</b></a></li>
+          <li><a href="/aboutus.hbs"><b>aboutus</b></a></li>
+          <li><a href="/facultylogout.hbs">Logout</a></li>
+        </ul>
+    
+    </nav>
+    <div class='content'>
+    <div class="userinfo">
+      <div class="userlogo">
+        <img src="https://image.flaticon.com/icons/png/512/1077/1077114.png" height="200px" width="200px" alt="">
+      </div>
+      <div class="userdetails">
+        <h3>Name:{{name}}</h2>
+        <h3>Gmail:{{gmail}}</h2>
+        <h3>Phone:{{phno}}</h2>
+        <h3>Dept:{{dept}}</h2>
+        <h3>User ID:{{userid}}</h2>
+      </div>
+    </div>
+
+</div>
+<div class="query">
+  <div class="head">
+  <h1>QUERY</h1>
+  </div>
+  
+  <form action="/auth/query" method="POST">
+    <label for="problem">problem:</label>
+    <textarea name="problem" id="problem"></textarea>
+    <br>
+    <label for="swap">Shift with:</label>
+    <input type="text" name='swap' id="swap">
+    <br>
+    <input type="submit">
+  </form>
+  
+</div>
+<div>
+  <h2>
+    NOTIFICATIONS
+  </h2>
+  <table >
+        <tr>
+            <th>NOTIFICATIONS</th>
+
+        </tr>
+        {{#each notific}}
+            <tr>
+                <td>{{this.notification}}</td>
+
+            </tr>
+        {{/each}}
+    
+        </table>
+</div>
+
+
+</body>
+</html>
