@@ -4,11 +4,11 @@ const path=require("path");
 const app=express();
 
 
-const db=mysql.createConnection({
-    host:'localhost',
-    user:'root',
-    password:'',
-    database:'adminlogin'
+const db=mysql.createPool({
+    host:'remotemysql.com',
+    user:'t3b3MlWj8Z',
+    password:'DVhBKljPiq',
+    database:'t3b3MlWj8Z'
 });
 
 const publicDirectory=path.join(__dirname,'./public');
@@ -19,20 +19,13 @@ app.use(express.json());
 app.set("view engine",'hbs');
 
 
-db.connect((error)=>{
-    if(error){
-        console.log(error)
-    }
-    else{
-        console.log("Mysql connected...")
-    }
-})
+
 
 app.use('/', require('./routes/pages'));
 app.use('/auth', require('./routes/auth'));
 
 
 
-app.listen(5000,()=>{
-    console.log("Server sarted on port 5000.....");
+app.listen(5001,()=>{
+    console.log("Server sarted on port 5000....");
 })
