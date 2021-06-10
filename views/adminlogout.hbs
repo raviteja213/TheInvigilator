@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>THE INVIGILATOR</title>
+  <style>
+*{
+  margin:0;
+  padding:0;
+  font-family:  sans-serif;
+  
+}
+html,body{
+    width: 100%;
+    height: 100%;
+}
+body {
+    margin: 0;
+    background-color: rgb(159, 109, 224);
+}
+
+nav{
+   background: white;
+   display: flex;
+   justify-content: space-between;
+   box-shadow:0 8px 16px rgb(95, 95, 95);
+   padding: 0 40px;
+}
+nav h1{
+  border-bottom:4px solid  rgb(159, 109, 224);
+}
+nav ul{
+  justify-content: space-around;
+  display: flex;
+  align-items: center;
+  
+}
+nav li{
+ 
+  list-style: none;
+  padding-right: 30px;
+}
+
+nav a{
+  color:rgb(159, 109, 224);
+  text-decoration: none;
+  font-weight: bold;
+  padding: 5px 8px;
+}
+
+nav a:hover{
+  color: rgb(0, 0, 0);
+  border-bottom:4px solid  rgb(159, 109, 224);
+}
+
+.signin{
+  background:#fff;
+  position:absolute;
+  left:50%;
+  top:50%;
+  transform: translate(-50%,-50%);
+  box-shadow:0 8px 16px #000;
+  padding:30px;
+  border-radius: 5px;
+  box-sizing: border-box;
+  width: 300px;
+}
+
+
+.signin input[type="submit"]{
+    margin-left:50%;
+    width:120px;
+    height:34px;
+    border:none;
+    color: white;
+    background-color: rgb(159, 109, 224);
+    border-radius: 5px;
+    transform: translateX(-50%);
+    cursor: pointer;
+}
+
+
+.signin h2{
+  margin-bottom:25px;
+  border-bottom:4px solid rgb(159, 109, 224);
+  width: 150px;
+  text-align: center;
+  margin-left:50%;
+  transform: translateX(-50%);
+}
+p{
+    margin-top:20px ;
+    text-align: center;
+    padding-bottom: 20px;
+}
+a{
+    text-decoration: none;
+}
+.alert{
+  border:1px solid red ;
+  background-color: rgba(238, 110, 159, 0.966);
+  text-align: center;
+  
+}
+
+
+
+
+  </style>
+</head>
+<body>
+    <nav>
+      <img src="https://upload.wikimedia.org/wikipedia/en/f/f8/Amrita-vishwa-vidyapeetham-color-logo.png" height="100px" width="250px" alt="photo">
+        <ul>
+          <li><a href="home.hbs"> <b>Home</b></a></li>
+          <li><a href="index.hbs"><b>Faculty</b></a></li>
+          <li><a href="adminlogin.hbs"><b>Admin</b></a></li>
+          <li><a href=""><b>Aboutus</b></a></li>
+        </ul>
+        
+    </nav>
+
+   
+
+  <div class="signin">
+    <h2>LOG-OUT</h2>
+    <p>Sucessfully Completed</p>
+    <form action="/adminlogin.hbs">
+      <input type="submit" value="Login">
+    </form>
+
+  </div>
+ 
+</body>
+</html>

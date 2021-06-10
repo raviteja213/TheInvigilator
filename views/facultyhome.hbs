@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>JS Bin</title>
+  <style>
+      *{
+  margin:0;
+  padding:0;
+  font-family:  sans-serif;
+  
+}
+html,body{
+    width: 100%;
+    height: 100%;
+}
+body {
+    margin: 0;
+    background-color: #eeeeee;
+}
+a{
+    text-decoration:none;
+}
+
+
+    nav{
+   background: rgb(255, 146, 3);
+   display: flex;
+   justify-content: space-between;
+   box-shadow:0 8px 16px rgb(95, 95, 95);
+   padding: 0 40px;
+}
+nav h1{
+  border-bottom:4px solid  white;
+  color: white;
+}
+nav ul{
+  justify-content: space-around;
+  display: flex;
+  align-items: center;
+  
+}
+nav li{
+ color: white;
+  list-style: none;
+  padding-right: 30px;
+}
+
+nav a{
+  color:white;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 5px 8px;
+}
+
+nav a:hover{
+  color: white;
+  border-bottom:4px solid  white;
+}
+.content{
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  align-items: center;
+}
+.userinfo{
+  background-color: #a59898cc;
+  width: 700px;
+  height: 400px;
+  margin-top: 5%;
+  border-radius: 10px;
+  display: flex;
+  
+  justify-content: space-between;
+  align-items: center;
+  border:5px solid rgb(255, 146, 3);
+}
+.userinfo .userlogo{
+  margin-left:30px;
+  background-color: #eeeeee;
+  border-radius: 100px;
+  padding: 20px;
+
+}
+.userinfo .userdetails{
+  margin-right: 15px;
+}
+.userinfo .userdetails h3{
+  background-color: #eeeeee;
+  border-radius: 10px;
+  width:300px;
+  margin-bottom: 20px;
+  padding: 10px;
+
+}
+.query{
+   background-color:#a59898cc ;
+    margin-left: 90px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 25px 50px;
+    border-radius: 10px;
+    border: 5px solid rgb(253, 146, 7);
+}
+.query h1{
+  margin: 20px 0;
+  color: white;
+  border-bottom: 5px solid white;
+}
+.query .ta{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0; 
+}
+.query .tt{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+}
+.ta textarea{
+  border-radius: 5px;
+  width: 180px;
+  resize: none;
+  outline: none;
+  border: none;
+}
+.tt input[type='text']{
+  margin-left: 20px;
+  padding:5px;
+  outline: none;
+  border: none;
+  border-radius: 5px;
+}
+.tt1{
+  padding: 10px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.tt1 input[type='submit']{
+  outline: none;
+  border: none;
+  width: 100px;
+  padding: 10px 10px;
+  border-radius: 15px;
+  background-color: rgb(22, 136, 230);
+  color: white;
+}
+select{
+  padding: 8px 12px;
+  border-radius: 5px;
+}
+select option{
+  background-color:rgb(253, 146, 7) ;
+  color: white;
+  margin: 10px;
+}
+label{
+  padding: 12px 16px;
+
+}
+
+.notify{
+  margin: 20px 0;
+}
+
+table{
+            border-collapse: collapse;
+            width:100%;
+            
+        }
+        th,td{
+            text-align: center;
+            padding: 8px;
+        }
+        tr:nth-child(even){
+            background-color: #f2f2f2;
+        }
+        tr:nth-child(odd){
+            background-color: white;
+        }
+        th{
+            background-color: rgb(255, 146, 3);
+            color: white;
+        }
+
+
+  </style>
+  <script>
+    var user=[
+        {{#each notific}}
+            {
+                notification:'{{notification}}',
+
+            }
+        {{/each}}
+        ];
+        var user1=[
+        {{#each facname}}
+            {
+                name:'{{name}}',
+
+            }
+        {{/each}}
+        ];
+  </script>
+</head>
+<body>
+    <nav>
+      <img src="https://upload.wikimedia.org/wikipedia/en/f/f8/Amrita-vishwa-vidyapeetham-color-logo.png" height="100px" width="250px" alt="photo">
+        <ul>
+          <li><a href="/facultyhome.hbs"><b>Home</b> </a></li>
+          <li><a href="/facedit.hbs"> <b>edit details</b></a></li>
+          <li><a href="/showsh.hbs"><b>Schedule</b></a></li>
+          
+          <li><a href="/facultylogout.hbs">Logout</a></li>
+        </ul>
+    
+    </nav>
+    <div class='content'>
+    <div class="userinfo">
+      <div class="userlogo">
+        <img src="https://image.flaticon.com/icons/png/512/1077/1077114.png" height="200px" width="200px" alt="">
+      </div>
+      <div class="userdetails">
+        <h3>Name: {{name}}</h2>
+        <h3>Gmail: {{gmail}}</h2>
+        <h3>Phone: {{phno}}</h2>
+        <h3>Dept: {{dept}}</h2>
+        <h3>User ID: {{userid}}</h2>
+      </div>
+    </div>
+    <div class="query">
+  <div class="head">
+  <h1>QUERY</h1>
+  </div>
+  
+  <form action="/auth/query" method="POST">
+    <div class="ta">
+      <label for="problem"> <h3>Problem:</h3> </label>
+      <textarea name="problem" id="problem"></textarea>
+    
+    </div>
+    <div class="tt">
+      <label for="swap"> <h3>Shift with:</h3> </label>
+      <select name="swap" >
+        <option value="none">-none-</option>
+        {{#each facname}}
+             <option value="{{this.name}}">{{this.name}}</option>
+                
+        {{/each}}
+      </select>
+      
+    </div>
+    
+    <div class="tt1">
+      <input type="submit">
+    </div>
+    
+  </form>
+  
+</div>
+
+</div>
+
+<div class="notify">
+ 
+  <table >
+        <tr>
+          <th> <h2> Notification</h2></th>
+        </tr>
+        {{#each notific}}
+            <tr>
+                <td>{{this.notification}}</td>
+
+            </tr>
+        {{/each}}
+    
+        </table>
+</div>
+
+
+</body>
+</html>
